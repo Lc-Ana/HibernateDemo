@@ -1,0 +1,22 @@
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             version="3.0">
+    <persistence-unit name="myJpaUnit" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <!-- Your Entity -->
+        <class>org.endava.hibernatedemo.entities.Person</class>
+
+        <properties>
+            <!-- JDBC Connection -->
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:h2:./testJPA"/>
+            <property name="jakarta.persistence.jdbc.user" value="ana"/>
+            <property name="jakarta.persistence.jdbc.password" value="password0"/>
+            <property name="jakarta.persistence.jdbc.driver" value="org.h2.Driver"/>
+
+            <!-- Hibernate Settings -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+            <property name="hibernate.show_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+</persistence>
